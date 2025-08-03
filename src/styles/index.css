@@ -5,6 +5,7 @@
 @import "./components/glass.css";
 @import "./components/cards.css";
 @import "./utilities/helpers.css";
+@import "./components//animations.css";
 
 @theme {
   --breakpoint-xs: 30rem;

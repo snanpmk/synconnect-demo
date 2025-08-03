@@ -119,12 +119,21 @@ const FeaturesShowcaseCard = ({ hoveredIcon, onIconHover, onIconLeave }) => {
     <div className="glass-gradient rounded-3xl shadow-lg p-4 sm:p-6 w-full max-w-[300px] h-[280px] sm:h-[300px] flex-shrink-0">
       <div className="flex flex-col items-center justify-between h-full">
         <div className="text-start flex-1 flex flex-col justify-center px-2">
-          <h3 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-3 transition-all duration-300 leading-tight">
-            {getContentText("heading")}
+          <h3 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-3 leading-tight overflow-hidden">
+            <span
+              key={getContentText("heading")} // Force re-render on content change
+              className="block animate-[slideInUp_0.4s_ease-out] transition-all duration-300"
+            >
+              {getContentText("heading")}
+            </span>
           </h3>
-          <div className="min-h-[40px] sm:min-h-[50px] flex items-center justify-center">
+
+          <div className="min-h-[40px] sm:min-h-[50px] flex items-center justify-center overflow-hidden">
             {hoveredIcon ? (
-              <p className="text-gray-300 text-xs sm:text-sm transition-all duration-300 leading-relaxed">
+              <p
+                key={getContentText("p")} // Force re-render on content change
+                className="text-gray-300 text-xs sm:text-sm leading-relaxed animate-[fadeInUp_0.5s_ease-out]"
+              >
                 {getContentText("p")}
               </p>
             ) : (
@@ -134,6 +143,7 @@ const FeaturesShowcaseCard = ({ hoveredIcon, onIconHover, onIconLeave }) => {
             )}
           </div>
         </div>
+
         <div className="mt-auto">
           <InteractiveIconsGrid
             hoveredIcon={hoveredIcon}
