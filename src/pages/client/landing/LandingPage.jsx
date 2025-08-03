@@ -6,9 +6,15 @@ import Status from "./components/Status";
 const LandingPage = () => (
   <>
     <Navbar />
-    <Hero />
-    <Status />
-    <About />
+    <section id="home">
+      <Hero />
+    </section>
+    <section>
+      <Status />
+    </section>
+    <section id="about">
+      <About />
+    </section>
   </>
 );
 

@@ -5,20 +5,64 @@ import { ArrowRight, Menu, Play, X } from "lucide-react";
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [showDemoPanel, setShowDemoPanel] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
+
   const openDemoPanel = () => setShowDemoPanel(true);
   const closeDemoPanel = () => setShowDemoPanel(false);
 
   const navLinks = [
-    { name: "Home", href: "#" },
-    { name: "About", href: "#" },
-    { name: "Product", href: "#" },
-    { name: "Features", href: "#" },
-    { name: "Testimonials", href: "#" },
-    { name: "Contact", href: "#" },
+    { name: "Home", href: "#home" },
+    { name: "About", href: "#about" },
+    { name: "Product", href: "#product" }, // or create a separate product section
+    { name: "Features", href: "#features" }, // you'll need to add this section
+    { name: "Testimonials", href: "#testimonials" }, // you'll need to add this section
+    { name: "Contact", href: "#contact" }, // you'll need to add this section
   ];
 
+  // Smooth scroll function
+  const handleNavClick = (e, href) => {
+    e.preventDefault();
+    const targetId = href.substring(1); // Remove the '#'
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+      const navHeight = 64; // Height of your navbar (h-16 = 64px)
+      const targetPosition = targetElement.offsetTop - navHeight;
+
+      window.scrollTo({
+        top: targetPosition,
+        behavior: "smooth",
+      });
+
+      setActiveSection(targetId);
+      setOpen(false); // Close mobile menu if open
+    }
+  };
+
+  // Track active section on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = navLinks.map((link) => link.href.substring(1));
+      const navHeight = 64;
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = document.getElementById(sections[i]);
+        if (section) {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= navHeight + 100) {
+            setActiveSection(sections[i]);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className="w-full bg-theme z-30 md:py-3 sticky  top-0">
+    <nav className="w-full bg-theme z-30 md:py-3 sticky top-0">
       <div className="max-w-[1200px] mx-auto px-4 flex items-center justify-between h-16 relative">
         {/* Logo */}
         <span className="font-bold text-2xl tracking-tight select-none text-white">
@@ -31,11 +75,20 @@ const Navbar = () => {
             <li key={link.name}>
               <a
                 href={link.href}
-                className="text-white font-medium transition-colors duration-150 flex flex-col relative group"
+                onClick={(e) => handleNavClick(e, link.href)}
+                className={`text-white font-medium transition-colors duration-150 flex flex-col relative group ${
+                  activeSection === link.href.substring(1) ? "text-primary" : ""
+                }`}
               >
                 <p className="relative">
                   {link.name}
-                  <span className="block h-[3px] bg-[var(--color-primary)] rounded-2xl mt-3 absolute left-0 bottom-0 w-0 group-hover:w-full transition-[width] duration-300 ease-in-out" />
+                  <span
+                    className={`block h-[3px] bg-[var(--color-primary-hover)] rounded-2xl mt-3 absolute left-0 bottom-0 transition-[width] duration-300 ease-in-out ${
+                      activeSection === link.href.substring(1)
+                        ? "w-full"
+                        : "w-0 group-hover:w-full"
+                    }`}
+                  />
                 </p>
               </a>
             </li>
@@ -74,8 +127,12 @@ const Navbar = () => {
             <li key={link.name}>
               <a
                 href={link.href}
-                className="block py-2 px-4 text-theme-muted font-medium hover:text-primary transition-colors duration-150 text-end"
-                onClick={() => setOpen(false)}
+                onClick={(e) => handleNavClick(e, link.href)}
+                className={`block py-2 px-4 font-medium hover:text-primary transition-colors duration-150 text-end ${
+                  activeSection === link.href.substring(1)
+                    ? "text-primary"
+                    : "text-theme-muted"
+                }`}
               >
                 {link.name}
               </a>
@@ -107,6 +164,7 @@ const Navbar = () => {
 
 export default Navbar;
 
+// DemoSlidePanel component remains the same
 const DemoSlidePanel = ({ isOpen, onClose, videoSrc }) => {
   useEffect(() => {
     if (isOpen) {
