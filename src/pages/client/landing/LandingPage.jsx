@@ -1,4 +1,5 @@
 import About from "./components/About";
+import Features from "./components/Features";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import Status from "./components/Status";
@@ -6,15 +7,10 @@ import Status from "./components/Status";
 const LandingPage = () => (
   <>
     <Navbar />
-    <section id="home">
-      <Hero />
-    </section>
-    <section>
-      <Status />
-    </section>
-    <section id="about">
-      <About />
-    </section>
+    <Hero />
+    <Status />
+    <About />
+    <Features />
   </>
 );
 

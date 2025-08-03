@@ -13,8 +13,8 @@ const Navbar = () => {
   const navLinks = [
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
-    { name: "Product", href: "#product" }, // or create a separate product section
     { name: "Features", href: "#features" }, // you'll need to add this section
+    { name: "Product", href: "#product" }, // or create a separate product section
     { name: "Testimonials", href: "#testimonials" }, // you'll need to add this section
     { name: "Contact", href: "#contact" }, // you'll need to add this section
   ];

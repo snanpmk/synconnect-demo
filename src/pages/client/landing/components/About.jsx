@@ -272,7 +272,10 @@ const About = () => {
   };
 
   return (
-    <section className="relative min-h-screen w-full flex flex-col items-center justify-center bg-black overflow-hidden py-12 sm:py-16 lg:py-20">
+    <section
+      id="about"
+      className="relative min-h-screen w-full flex flex-col items-center justify-center bg-black overflow-hidden py-12 sm:py-16 lg:py-20"
+    >
       <MovingDots />
 
       <div className="relative z-10">

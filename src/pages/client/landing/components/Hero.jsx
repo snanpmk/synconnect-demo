@@ -6,7 +6,7 @@ import MovingDots from "../../../../common/components/MovingDots";
 
 const Hero = () => {
   return (
-    <section className="relative h-screen min-h-170 md:min-h-screen w-full flex items-start justify-center bg-black overflow-hidden">
+    <section id="home" className="relative h-screen min-h-170 md:min-h-screen w-full flex items-start justify-center bg-black overflow-hidden">
       {/* Grid overlay wrapper */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div className="relative w-full max-w-[1200px] h-full flex justify-center">
