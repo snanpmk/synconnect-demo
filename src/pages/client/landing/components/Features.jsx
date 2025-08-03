@@ -58,7 +58,7 @@ const Features = () => {
   // Feature block component
   const FeatureBlock = ({ feature }) => (
     <div
-      className="absolute   bg-gradient-to-tr from-neutral-400 via-neutral-800 to-neutral-400 p-[0.1rem] rounded-2xl"
+      className="absolute   bg-gradient-to-tr from-neutral-600 via-neutral-800 to-neutral-500 p-[0.1rem] rounded-2xl"
       style={{
         top: feature.position.top,
         left: feature.position.left,
