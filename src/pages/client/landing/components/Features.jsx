@@ -58,7 +58,7 @@ const Features = () => {
   // Feature block component
   const FeatureBlock = ({ feature }) => (
     <div
-      className="absolute   bg-gradient-to-tr from-neutral-400 via-neutral-800 to-neutral-400 p-1 rounded-2xl"
+      className="absolute   bg-gradient-to-tr from-neutral-400 via-neutral-800 to-neutral-400 p-[0.1rem] rounded-2xl"
       style={{
         top: feature.position.top,
         left: feature.position.left,
@@ -86,6 +86,7 @@ const Features = () => {
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
       }}
+      id="features"
     >
       {/* Radial overlay */}
       <div
