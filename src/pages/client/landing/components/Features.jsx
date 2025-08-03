@@ -52,13 +52,13 @@ const Features = () => {
       Settings,
     };
     const IconComponent = icons[iconName];
-    return <IconComponent size={40} />;
+    return <IconComponent size={40} color='silver' />;
   };
 
   // Feature block component
   const FeatureBlock = ({ feature }) => (
     <div
-      className="absolute   bg-gradient-to-tr from-neutral-600 via-neutral-800 to-neutral-500 p-[0.1rem] rounded-2xl"
+      className="absolute  backdrop-blur-lg  bg-gradient-to-tr from-neutral-600 via-neutral-800 to-neutral-500 p-[0.1rem] rounded-2xl"
       style={{
         top: feature.position.top,
         left: feature.position.left,
@@ -69,7 +69,7 @@ const Features = () => {
       <div className="aspect-square bg-gradient-to-tr from-black to-neutral-800 backdrop-opacity-95 rounded-2xl pt-4 px-4 pb-3 min-w-[120px]">
         <div className="flex flex-col items-start pt-7 space-y-2">
           {getIcon(feature.icon)}
-          <h3 className="font-medium text-xl break-all whitespace-normal leading-tight">
+          <h3 className="font-medium text-xl break-all whitespace-normal leading-tight text-neutral-300">
             {feature.description}
           </h3>
         </div>
