@@ -6,72 +6,46 @@ import { Users, Package, Share2, BarChart3, Settings } from "lucide-react";
 const Features = () => {
   const features = [
     {
-      name: "Instant Connect",
-      icon: "Users",
-      description: "Exchange contacts seamlessly",
-      position: { top: "10%", left: "10%" },
-      zIndex: 5, // Behind NFC card
-    },
-    {
-      name: "Product Showcase",
-      icon: "Package",
-      description: "Display your catalog",
-      position: { top: "15%", right: "15%" },
-      zIndex: 15, // In front of NFC card
-    },
-    {
-      name: "One-Tap Share",
-      icon: "Share2",
-      description: "Share everything instantly",
-      position: { top: "60%", left: "5%" },
-      zIndex: 15, // In front of NFC card
-    },
-    {
-      name: "Smart Analytics",
+      name: "Smart Insights",
       icon: "BarChart3",
-      description: "Track engagement insights",
-      position: { top: "65%", right: "10%" },
-      zIndex: 5, // Behind NFC card
+      description: "Track every\ninteraction",
     },
     {
-      name: "Easy Customize",
-      icon: "Settings",
-      description: "Personalize your profile",
-      position: { top: "30%", left: "20%" },
-      zIndex: 15, // In front of NFC card
+      name: "Tap & Connect",
+      icon: "Users",
+      description: "Share contacts\nin one tap",
+    },
+    {
+      name: "Live Showcase",
+      icon: "Package",
+      description: "Show your\nproducts live",
+    },
+    {
+      name: "One-Tap Blast",
+      icon: "Share2",
+      description: "Send links\n& socials\ninstantly",
     },
   ];
 
-  // Icon component mapping
-  const getIcon = (iconName) => {
-    const icons = {
-      Users,
-      Package,
-      Share2,
-      BarChart3,
-      Settings,
-    };
-    const IconComponent = icons[iconName];
-    return <IconComponent size={40} color='silver' />;
+  const icons = { Users, Package, Share2, BarChart3, Settings };
+  const getIcon = (name) => {
+    const Icon = icons[name];
+    return <Icon size={38} color="#c9c9c9" />;
   };
 
-  // Feature block component
   const FeatureBlock = ({ feature }) => (
-    <div
-      className="absolute  backdrop-blur-lg  bg-gradient-to-tr from-neutral-600 via-neutral-800 to-neutral-500 p-[0.1rem] rounded-2xl"
-      style={{
-        top: feature.position.top,
-        left: feature.position.left,
-        right: feature.position.right,
-        zIndex: feature.zIndex,
-      }}
-    >
-      <div className="aspect-square bg-gradient-to-tr from-black to-neutral-800 backdrop-opacity-95 rounded-2xl pt-4 px-4 pb-3 min-w-[120px]">
-        <div className="flex flex-col items-start pt-7 space-y-2">
+    <div className="shadow-lg backdrop-blur-lg bg-gradient-to-tr from-neutral-600 via-neutral-800 to-neutral-500 p-[0.1rem] rounded-2xl w-[160px] h-[160px] md:w-[180px] md:h-[180px] lg:w-[200px] lg:h-[200px]">
+      <div className="w-full h-full rounded-2xl glass-black relative group">
+        <div className="h-full flex flex-col gap-2 justify-end items-start pb-4 px-4 group-hover:animate-[slideInUp_0.5s_ease-out_forwards]">
           {getIcon(feature.icon)}
-          <h3 className="font-medium text-xl break-all whitespace-normal leading-tight text-neutral-300">
+
+          <h4 className="text-sm md:text-md lg:text-lg font-semibold text-slate-200 leading-tight group-hover:animate-[slideInUp_0.5s_ease-out_forwards]">
+            {feature.name}
+          </h4>
+
+          <p className="block md:hidden  text-slate-300 text-xs lg:text-sm whitespace-pre-line leading-tight group-hover:block group-hover:animate-[slideInUp_0.5s_ease-out_forwards]">
             {feature.description}
-          </h3>
+          </p>
         </div>
       </div>
     </div>
@@ -79,36 +53,111 @@ const Features = () => {
 
   return (
     <section
-      className="min-h-screen relative w-full flex flex-col items-center bg-black overflow-hidden py-10 justify-start"
+      id="features"
+      className="relative w-full min-h-screen flex flex-col items-center justify-start bg-black overflow-hidden py-10 px-4"
       style={{
         backgroundImage: `url(${featuresBg})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
       }}
-      id="features"
     >
-      {/* Radial overlay */}
+      {/* Background overlays - preserved */}
+      <div
+        className="absolute top-0 left-0 w-full h-[100px]"
+        style={{
+          background:
+            "linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1))",
+        }}
+      />
+
       <div
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse at center, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.80) 70%,rgba(0,0,0,0.95) 85%, rgba(0,0,0,1) 100%)",
+            "radial-gradient(ellipse at center,rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.6) 40%,rgba(0,0,0,0.8) 70%,rgba(0,0,0,0.95) 85%,rgba(0,0,0,1) 100%)",
         }}
       />
 
-      <div className="h-full text-white w-full flex items-center justify-center">
-        {/* NFC Card Image - z-index 10 */}
-        <img
-          src={NFCCardImg}
-          alt="NFC Business Card"
-          className="w-[350px] top-20 right-1/2 translate-x-1/2 absolute z-10"
-        />
+      {/* Main container */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto">
+        {/* Mobile Layout: Stack with fixed card sizes */}
+        <div className="block md:hidden">
+          {/* NFC Card at top */}
+          <div className="flex justify-center mb-8 mt-8">
+            <img
+              src={NFCCardImg}
+              alt="NFC Business Card"
+              className="w-[200px] max-w-[70vw]"
+            />
+          </div>
 
-        {/* Map through features and render feature blocks */}
-        {features.map((feature, index) => (
-          <FeatureBlock key={index} feature={feature} />
-        ))}
+          {/* Feature cards in 2x2 grid with fixed sizes */}
+          <div className="grid grid-cols-2 gap-4 justify-items-center px-4">
+            {features.map((feature, i) => (
+              <FeatureBlock key={i} feature={feature} />
+            ))}
+          </div>
+        </div>
+
+        {/* Tablet Layout: Around center card */}
+        <div className="hidden md:block lg:hidden">
+          <div className="relative min-h-[700px] flex items-center justify-center">
+            {/* Center NFC Card */}
+            <img
+              src={NFCCardImg}
+              alt="NFC Business Card"
+              className="w-[280px] z-20"
+            />
+
+            {/* Feature cards positioned around with fixed sizes */}
+            <div className="absolute top-[8%] left-[10%]">
+              <FeatureBlock feature={features[0]} />
+            </div>
+
+            <div className="absolute top-[8%] right-[10%]">
+              <FeatureBlock feature={features[2]} />
+            </div>
+
+            <div className="absolute bottom-[8%] left-[10%]">
+              <FeatureBlock feature={features[1]} />
+            </div>
+
+            <div className="absolute bottom-[8%] right-[10%]">
+              <FeatureBlock feature={features[3]} />
+            </div>
+          </div>
+        </div>
+
+        {/* Desktop Layout: Original positioning with fixed sizes */}
+        <div className="hidden lg:block">
+          <div className="relative min-h-[800px]">
+            {/* Center NFC Card */}
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+              <img
+                src={NFCCardImg}
+                alt="NFC Business Card"
+                className="w-[350px]"
+              />
+            </div>
+
+            {/* Feature cards with original positioning and fixed sizes */}
+            <div className="absolute top-[10%] left-[17%] z-5">
+              <FeatureBlock feature={features[0]} />
+            </div>
+
+            <div className="absolute top-[10%] right-[12%] z-15">
+              <FeatureBlock feature={features[2]} />
+            </div>
+
+            <div className="absolute bottom-[12%] left-[12%] z-5">
+              <FeatureBlock feature={features[1]} />
+            </div>
+
+            <div className="absolute bottom-[8%] right-[17%] z-15">
+              <FeatureBlock feature={features[3]} />
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
