@@ -11,6 +11,27 @@
     scroll-behavior: smooth;
   }
 
+  .testimonial-gradient {
+    background: linear-gradient(
+      to bottom,
+      #080808 0%,
+      #151515 15%,
+      #252525 30%,
+      #303030 45%,
+      #343434 50%,
+      #303030 55%,
+      #252525 70%,
+      #151515 85%,
+      #080808 100%
+    );
+  }
+
+  .gradient-border {
+    background: linear-gradient(your-card-bg) padding-box,
+      linear-gradient(to top right, #a3a3a3, #404040, #171717) border-box;
+    border: 2px solid transparent;
+  }
+
   .card {
     @apply rounded-lg shadow-sm p-6;
     background-color: var(--color-bg-muted);

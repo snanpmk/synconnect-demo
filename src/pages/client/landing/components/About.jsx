@@ -81,7 +81,7 @@ const MobileFeatureCard = ({ iconItem }) => {
   const IconComponent = iconItem.icon;
 
   return (
-    <div className="glass-gradient rounded-2xl shadow-lg p-4 sm:p-6 flex-shrink-0 w-full">
+    <div className="glass-gradient gradient-border rounded-2xl shadow-lg p-4 sm:p-6 flex-shrink-0 w-full">
       <div className="flex flex-col items-center text-center">
         <div className="p-1 bg-gradient-to-tr from-neutral-700 via-black to-neutral-700 rounded-full shadow-lg mb-4">
           <div className="p-3 bg-black rounded-full">
@@ -116,7 +116,7 @@ const FeaturesShowcaseCard = ({ hoveredIcon, onIconHover, onIconLeave }) => {
   };
 
   return (
-    <div className="glass-gradient rounded-3xl shadow-lg p-4 sm:p-6 w-full max-w-[300px] h-[280px] sm:h-[300px] flex-shrink-0">
+    <div className="glass-gradient gradient-border rounded-3xl shadow-lg p-4 sm:p-6 w-full max-w-[300px] h-[280px] sm:h-[300px] flex-shrink-0">
       <div className="flex flex-col items-center justify-between h-full">
         <div className="text-start flex-1 flex flex-col justify-center px-2">
           <h3 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-3 leading-tight overflow-hidden">
@@ -159,7 +159,7 @@ const FeaturesShowcaseCard = ({ hoveredIcon, onIconHover, onIconLeave }) => {
 // Company Info Card
 const CompanyInfoCard = () => {
   return (
-    <div className="glass-gradient relative rounded-3xl shadow-lg p-4 sm:p-6 flex-1 min-h-[380px] md:min-h-[280px] overflow-hidden">
+    <div className="glass-gradient gradient-border relative rounded-3xl shadow-lg p-4 sm:p-6 flex-1 min-h-[380px] md:min-h-[280px] overflow-hidden">
       {/* For md+ screens: side-by-side layout with image to the right */}
       <div className="hidden md:grid md:grid-cols-2 gap-4 h-full">
         {/* Text Content */}

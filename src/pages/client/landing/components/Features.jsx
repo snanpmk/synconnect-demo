@@ -34,7 +34,7 @@ const Features = () => {
   };
 
   const FeatureBlock = ({ feature }) => (
-    <div className="shadow-lg backdrop-blur-lg bg-gradient-to-tr from-neutral-600 via-neutral-800 to-neutral-500 p-[0.1rem] rounded-2xl w-[160px] h-[160px] md:w-[180px] md:h-[180px] lg:w-[200px] lg:h-[200px]">
+    <div className="shadow-lg backdrop-blur-lg  rounded-2xl w-[160px] h-[160px] md:w-[180px] md:h-[180px] lg:w-[200px] lg:h-[200px] gradient-border">
       <div className="w-full h-full rounded-2xl glass-black relative group">
         <div className="h-full flex flex-col gap-2 justify-end items-start pb-4 px-4 group-hover:animate-[slideInUp_0.5s_ease-out_forwards]">
           {getIcon(feature.icon)}
@@ -62,13 +62,7 @@ const Features = () => {
       }}
     >
       {/* Background overlays - preserved */}
-      <div
-        className="absolute top-0 left-0 w-full h-[100px]"
-        style={{
-          background:
-            "linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1))",
-        }}
-      />
+  
 
       <div
         className="absolute inset-0"

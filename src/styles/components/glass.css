@@ -5,6 +5,16 @@
     border: 1px solid rgba(255, 255, 255, 0.15);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   }
+ .glass-transparent-gradient {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.02) 20%,
+    rgba(255, 255, 255, 0.00) 100%
+  );
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
 
   .glass-light {
     background: rgba(255, 255, 255, 0.05);
@@ -27,7 +37,7 @@
       rgba(255, 255, 255, 0.041)
     );
     backdrop-filter: blur(14px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    /* border: 1px solid rgba(255, 255, 255, 0.18); */
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
   }
 

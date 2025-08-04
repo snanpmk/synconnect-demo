@@ -23,6 +23,7 @@
   --color-primary: #67d861;
   --color-primary-hover: #5bc454;
   --color-primary-hover-dark: #032200;
+  --color-testimonial-bg: #262626;
 }
 
 @layer theme {

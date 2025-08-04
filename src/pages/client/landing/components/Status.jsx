@@ -31,7 +31,7 @@ const Status = () => {
       ref={sectionRef}
       className="relative w-full mt-0 md:mt-5 flex flex-col items-center justify-center bg-black overflow-hidden py-8 sm:py-12 md:py-16  px-5 "
     >
-      <div className="glass-gradient p-4 sm:p-6 rounded-2xl sm:rounded-3xl flex flex-col sm:flex-row gap-6 sm:gap-8 md:gap-10 max-w-sm sm:max-w-2xl md:max-w-4xl w-full mx-auto">
+      <div className="glass-gradient gradient-border p-4 sm:p-6 rounded-2xl sm:rounded-3xl flex flex-col sm:flex-row gap-6 sm:gap-8 md:gap-10 max-w-sm sm:max-w-2xl md:max-w-4xl w-full mx-auto">
         {/* Active Users */}
         <div className="flex flex-col items-center text-center flex-1">
           <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-1 sm:mb-2">
