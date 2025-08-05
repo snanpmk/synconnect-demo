@@ -7,14 +7,14 @@ import MaintenancePage from "./common/components/Maintenance";
 
 function App() {
   return (
-    // <Router>
-    //   <Routes>
-    //     <Route path="/" element={<LandingPage />} />
-    //     <Route path="/profile" element={<ClientProfile />} />
-    //     <Route path="/dashboard" element={<Dashboard />} />
-    //   </Routes>
-    // </Router>
-    <MaintenancePage />
+    <Router>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/profile" element={<ClientProfile />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
+    </Router>
+    // <MaintenancePage />
   );
 }
 

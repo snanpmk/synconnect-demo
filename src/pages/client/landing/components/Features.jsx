@@ -62,18 +62,36 @@ const Features = () => {
       }}
     >
       {/* Background overlays - preserved */}
-  
 
-      <div
+      {/* <div
         className="absolute inset-0"
         style={{
           background:
             "radial-gradient(ellipse at center,rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.6) 40%,rgba(0,0,0,0.8) 70%,rgba(0,0,0,0.95) 85%,rgba(0,0,0,1) 100%)",
         }}
+      /> */}
+
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at center, transparent 0%, transparent 20%, black 100%)",
+        }}
+      />
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage:
+            "linear-gradient( black 0%, transparent 50%,black 100%)",
+        }}
       />
 
+      <h1 className="z-2 text-4xl md:text-6xl md:mb-4 font-semibold w-full text-center ">
+        Honest Pricing,
+        <br /> No Unseen Charges.
+      </h1>
       {/* Main container */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto">
+      <div className="relative z-15 w-full max-w-7xl mx-auto">
         {/* Mobile Layout: Stack with fixed card sizes */}
         <div className="block md:hidden">
           {/* NFC Card at top */}
@@ -126,7 +144,7 @@ const Features = () => {
         <div className="hidden lg:block">
           <div className="relative min-h-[800px]">
             {/* Center NFC Card */}
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+            <div className="absolute top-1/2  md:top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
               <img
                 src={NFCCardImg}
                 alt="NFC Business Card"

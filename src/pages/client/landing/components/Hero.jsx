@@ -110,22 +110,7 @@ const Hero = () => {
       "
       />
 
-      {/* White Glow styles */}
-      <style>{`
-        .whiteGlow {
-          filter: blur(124px);
-        }
-        @media (min-width: 768px) {
-          .whiteGlow {
-            filter: blur(150px);
-          }
-        }
-        @media (min-width: 1024px) {
-          .whiteGlow {
-            filter: blur(282px);
-          }
-        }
-      `}</style>
+   
       <div
         className="pointer-events-none absolute bottom-0 left-0 w-full h-52 z-[5]"
         style={{

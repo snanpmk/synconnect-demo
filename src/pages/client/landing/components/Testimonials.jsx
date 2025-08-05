@@ -1,5 +1,6 @@
 import React from "react";
 import { Quote } from "lucide-react";
+import MovingDots from "../../../../common/components/MovingDots";
 
 // Quote Icon Component
 const QuoteIcon = ({ size = 24, strokeWidth = 1.5 }) => {
@@ -23,7 +24,7 @@ const AuthorInfo = ({ name, role }) => {
 // Testimonial Card Component
 const TestimonialCard = ({ testimonial }) => {
   return (
-    <div className="gradient-border shadow-lg hover:transform hover:scale-105 transition-all duration-300 backdrop-blur-lg rounded-3xl aspect-square p-10 md:p-8 relative glass-transparent-gradient">
+    <div className="gradient-border shadow-lg hover:transform hover:scale-105 transition-all duration-300 backdrop-blur-lg rounded-3xl aspect-square p-10 md:p-8 relative glass-gradient">
       <QuoteIcon />
 
       {/* Testimonial Text */}
@@ -87,13 +88,14 @@ const Testimonials = () => {
 
   return (
     <section
-      className="relative bg-testimonial-bg w-full min-h-screen flex flex-col items-center justify-center overflow-hidden py-20 px-4"
+      className="relative bg-black w-full min-h-screen flex flex-col items-center justify-center overflow-hidden py-20 px-4"
       id="testimonials"
     >
       {/* Overlay that transitions to black at the bottom */}
-      <div className="absolute inset-0 pointer-events-none">
+      {/* <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-0 right-0 h-80 bg-gradient-to-t from-transparent to-black"></div>
-      </div>
+      </div> */}
+      <MovingDots />
       <SectionHeader
         title="What Our Users Say"
         subtitle="Trusted by our users around the world."
@@ -102,9 +104,9 @@ const Testimonials = () => {
       <TestimonialGrid testimonials={testimonials} />
 
       {/* Overlay that transitions to black at the bottom */}
-      <div className="absolute inset-0 pointer-events-none">
+      {/* <div className="absolute inset-0 pointer-events-none">
         <div className="absolute bottom-0 left-0 right-0 h-80 bg-gradient-to-t from-black to-transparent"></div>
-      </div>
+      </div> */}
     </section>
   );
 };

@@ -57,3 +57,17 @@
     padding-left: 1.25rem;
   }
 }
+
+.whiteGlow {
+  filter: blur(124px);
+}
+@media (min-width: 768px) {
+  .whiteGlow {
+    filter: blur(150px);
+  }
+}
+@media (min-width: 1024px) {
+  .whiteGlow {
+    filter: blur(282px);
+  }
+}
