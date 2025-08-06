@@ -6,7 +6,10 @@ import MovingDots from "../../../../common/components/MovingDots";
 
 const Hero = () => {
   return (
-    <section id="home" className="relative h-screen min-h-170 md:min-h-screen w-full flex items-start justify-center bg-black overflow-hidden">
+    <section
+      id="home"
+      className="relative h-screen min-h-170 md:min-h-screen w-full flex items-start justify-center bg-black overflow-hidden"
+    >
       {/* Grid overlay wrapper */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div className="relative w-full max-w-[1200px] h-full flex justify-center">
@@ -50,7 +53,10 @@ const Hero = () => {
           professional profile instantly
         </p>
         <div className="flex items-center justify-center w-full">
-          <button className="btn-primary mt-10 px-7 py-3 text-base sm:text-lg rounded-full shadow-md font-medium flex items-center gap-2">
+          <button
+            className="btn-primary cursor-pointer mt-10 px-7 py-3 text-base sm:text-lg rounded-full shadow-md font-medium flex items-center gap-2"
+            onClick={() => (window.location.href = "#product")}
+          >
             Get Started
             <ArrowRight className="w-5 h-5" />
           </button>
@@ -110,7 +116,6 @@ const Hero = () => {
       "
       />
 
-   
       <div
         className="pointer-events-none absolute bottom-0 left-0 w-full h-52 z-[5]"
         style={{
