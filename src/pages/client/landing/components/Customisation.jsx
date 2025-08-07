@@ -36,7 +36,7 @@ const Customisation = () => {
       }}
     >
       <div className="w-full max-w-7xl mx-auto">
-        <div className="flex flex-col gap-8 sm:gap-10 md:gap-12 lg:gap-16 xl:gap-20 items-center lg:items-start z-50">
+        <div className="flex flex-col gap-8 sm:gap-10 overflow-hidden md:gap-12 lg:gap-16 xl:gap-20 items-center lg:items-start z-50">
           <CardIntro />
           <CustomisingTool />
         </div>
