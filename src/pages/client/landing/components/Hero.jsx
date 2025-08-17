@@ -3,13 +3,54 @@ import heroAbstract from "../../../../assets/abstract-hero.png";
 import heroCard from "../../../../assets/card-hero.png";
 import GridOverlay from "../../../../common/components/GridOverlay";
 import MovingDots from "../../../../common/components/MovingDots";
+import { useState } from "react";
 
 const Hero = () => {
+  const [pickedColor, setPickedColor] = useState("");
+
+  const handlePickColor = async () => {
+    if (!window.EyeDropper) {
+      alert("EyeDropper API not supported! Try Chrome/Edge desktop.");
+      return;
+    }
+    try {
+      const result = await new window.EyeDropper().open();
+      setPickedColor(result.sRGBHex);
+    } catch (e) {
+      // User canceled or error
+      console.log(e);
+    }
+  };
+
   return (
     <section
       id="home"
       className="relative h-screen min-h-170 md:min-h-screen w-full flex items-start justify-center bg-black overflow-hidden"
     >
+      {/* Eyedropper Button & Color Display */}
+      <div className="absolute top-8 left-8 z-20">
+        <button
+          className="btn-primary px-4 py-2 rounded shadow text-sm flex items-center gap-1 bg-[var(--color-primary)] text-white"
+          onClick={handlePickColor}
+        >
+          Pick Color (Screen)
+        </button>
+        {pickedColor && (
+          <div className="mt-2 flex items-center gap-2">
+            <span>Picked:</span>
+            <span
+              style={{
+                background: pickedColor,
+                width: 24,
+                height: 24,
+                borderRadius: 6,
+                border: "2px solid #fff",
+              }}
+            />
+            <span className="text-xs">{pickedColor}</span>
+          </div>
+        )}
+      </div>
       {/* Grid overlay wrapper */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div className="relative w-full max-w-[1200px] h-full flex justify-center">
